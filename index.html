@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <title>Currency Converter</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light justify-content-center" style="background-color: #B3C8CF;width: 100%;">
+        <a class="navbar-brand" style="color: black;font-size: 45px; font-family: 'Sofia', sans-serif;text-decoration: wavy;">Currency Converter </a>
+    </nav>
+    <div class="container-fluid d-flex justify-content-center align-items-center ">
+        <img src="assets/cur_conv.png" alt="" style="margin-right: 50px;margin-top: 90px;">
+        <div class="card" style="width: 600px;height: 300px;padding: 20px;justify-content: space-evenly;margin-top: 80px;background-color: bisque;border: bisque;">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default" style="background-color: #B3C8CF; font-family: 'Trirong', serif;">Amount</span>
+                </div>
+                <input type="number" class="form-control"  onkeyup="calculate()" id="inputAmount" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="from-to d-flex">
+                <div class="input-group mb-3 " style="margin-right: 5px;">
+                    <input type="text" class="form-control" aria-label="Default" id="inputValue1"
+                     aria-describedby="inputGroup-sizing-default" readonly>
+                    <div class="input-group-prepend">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" style="background-color: #B3C8CF;border: #B3C8CF;color: black; font-family: 'Trirong', serif;" data-bs-toggle="dropdown" aria-expanded="false">
+                              From
+                            </button>
+                            <ul class="dropdown-menu" id="fromList" style="height: 300px;overflow: scroll;">
+                                <li>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1"><img src="assets/search.png" alt="" style="width: 20px;height: 20px;"></span>
+                                        <input type="text" class="form-control" onkeyup="searchFrom()"  id="searchforFrom" placeholder="Search..." aria-label="Username" aria-describedby="basic-addon1">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>                 
+                    </div>
+                </div>
+                <div class="input-group mb-3 ml-3"  style="margin-left: 5px;">
+                    <input type="text" class="form-control" readonly id="inputValue2" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                    <div class="input-group-prepend">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button"  style="background-color: #B3C8CF;border: #B3C8CF;color: black; font-family: 'Trirong', serif;" data-bs-toggle="dropdown" aria-expanded="false" value="">
+                              To
+                            </button>
+                            <ul class="dropdown-menu" id="toList" style="height: 300px;overflow: scroll;">
+                                <li>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1"><img src="assets/search.png" alt="" style="width: 20px;height: 20px;"></span>
+                                        <input type="text" class="form-control" onkeyup="searchTo()"  id="searchforTo" placeholder="Search..." aria-label="Username" aria-describedby="basic-addon1">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>                      
+                    </div>
+                </div>
+            </div>
+            <h3 style="text-align: center;margin-top: 35px; font-family: 'Audiowide', sans-serif;" id="result"></h3>
+        </div>
+    </div>
+    <script src="currencyscript.js"></script>
+</body>
+</html>
